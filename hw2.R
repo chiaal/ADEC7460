@@ -324,7 +324,7 @@ dole.etsf$mean
 dole.hwm$mean
 #The point forecasts from an ETS(M,A,M) model and Holt-Winter's multiplicative model come out to be very similar
 
-#Chapter 8 Exercises
+#Hyndman Chapter 8 Exercises
 #1
 #1a
 #The differences among all three figures is that the dashed line boundaries are getting tighter due to the increases amount of random numbers. The ACF of all three look like that of a white noise series as there are almost no spikes lying outside the 95% limits. Series: x2 has two spikes that lie outside the 95% limits but still expect the autocorrelation to be close to zero.
@@ -625,3 +625,8 @@ hsalesstlf = stlf(hsales, BoxCox.lambda(hsales), s.window = 5, robust = TRUE, me
 autoplot(hsalesstlf)
 checkresiduals(hsalesstlf)
 #The forecasts from the stlf() shows a tighter prediction interval with lower peaks compared to the ets() model. However, I think ets() model is still better as the ACF graph for the residuals of the stlf() model shows four lags that are outside the 95% limits compared to only one lag for ets() model.
+
+#15
+#15a
+retailarima <- forecast(auto.arima(retaildatats),h = 36)
+autoplot(retailarima)
